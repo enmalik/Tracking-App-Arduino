@@ -12,15 +12,15 @@ void loop() {
 	int input = Serial.read() - '0';
 	
 	if (input == 1) {
-		Serial.println("12345678_MallStoreA");
+		Serial.println("123456781234_MallStoreA");
 		digitalWrite(ledPin, HIGH);
 		digitalWrite(ledPin, LOW);
 	} else if (input == 2) {
-		Serial.println("87654321_MallExit");
+		Serial.println("876543210987_MallExit");
 		digitalWrite(ledPin, HIGH);
 		digitalWrite(ledPin, LOW);
 	} else if (input == 3) {
-		Serial.println("09876543_MallStoreA");
+		Serial.println("098765431234_MallStoreA");
 		digitalWrite(ledPin, HIGH);
 		digitalWrite(ledPin, LOW);
 	} else {
