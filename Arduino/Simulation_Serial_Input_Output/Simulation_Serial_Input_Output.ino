@@ -6,19 +6,18 @@ void setup() {
 }
 
 void loop() {
+/*Serial.print("GET /meter.php HTTP/1.0\n");
+delay(1000);*/
+
 while (Serial.available() == 0);
-
 int input = Serial.read() - '0';
-
-if (input == 1) {
+ if (input == 1) {
  Serial.println("Legit");
  digitalWrite(ledPin, HIGH);
- delay(500);
+ //delay(250);
  digitalWrite(ledPin, LOW);
- Serial.print("GET /meter.php HTTP/1.0\n");
 } else {
   Serial.println("Flop");
 }
-
 
 }
