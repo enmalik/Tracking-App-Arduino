@@ -5,12 +5,8 @@ void setup() {
 }
 
 void loop() {
-	/*Serial.print("GET /meter.php HTTP/1.0\n");
-	delay(1000);*/
-	
 	while (Serial.available() == 0);
 	int input = Serial.read() - '0';
-	
 	if (input == 1) {
 		Serial.println("123456781234_MallStoreA");
 		digitalWrite(ledPin, HIGH);
@@ -26,5 +22,4 @@ void loop() {
 	} else {
 		Serial.println("Invalid");
 	}
-
 }
