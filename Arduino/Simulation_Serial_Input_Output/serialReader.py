@@ -6,13 +6,9 @@ import re
 from httplib2 import Http
 from urllib import urlencode
 h = Http()
-data = dict(rfidtag="123456", location="toronto")
 
 def receiving(ser):
-    global last_received
-    regex = re.compile("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_")
-    split = re.compile(".*\n")
-    buffer = ''
+    regex = re.compile("[0-9]{12,12}_")
     while True:
         keypress = raw_input("Enter key press: ")
         ser.write(keypress)
@@ -20,8 +16,7 @@ def receiving(ser):
         read = ser.read(ser.inWaiting())
         print read;
         if regex.match(read):
-            read2 = read.rstrip('\r\n')
-            params = read2.split("_");
+            params = read.rstrip('\r\n').split("_");
             data = dict(rfidtag=params[0], location=params[1])
             resp, content = h.request("http://tracking-3b.herokuapp.com/main", "POST", urlencode(data))
 
