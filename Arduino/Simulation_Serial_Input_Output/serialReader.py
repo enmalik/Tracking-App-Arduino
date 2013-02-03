@@ -23,7 +23,7 @@ def receiving(ser):
             read2 = read.rstrip('\r\n')
             params = read2.split("_");
             data = dict(rfidtag=params[0], location=params[1])
-            resp, content = h.request("http://localhost:3000/main", "POST", urlencode(data))
+            resp, content = h.request("http://tracking-3b.herokuapp.com/main", "POST", urlencode(data))
 
 arduino = serial.Serial('COM3',9600,timeout=10)
 receiving(arduino);
