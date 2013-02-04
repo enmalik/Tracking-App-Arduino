@@ -16,7 +16,7 @@ void loop() {
 		digitalWrite(ledPin, HIGH);
 		digitalWrite(ledPin, LOW);
 	} else if (input == 3) {
-		Serial.println("098765431234_MallStoreA");
+		Serial.println("198765431234_MallStoreB");
 		digitalWrite(ledPin, HIGH);
 		digitalWrite(ledPin, LOW);
 	} else {
