@@ -1,5 +1,6 @@
 import serial
 import time
+import datetime
 import re
 
 from httplib2 import Http
@@ -14,8 +15,9 @@ def receiving(ser):
         #print read;
         if regex.match(read):
             params = read.rstrip('\r\n').split("_");
-            print params[0],params[1]
-            data = dict(rfidtag=params[0], location=params[1])
+            readTime = str(datetime.datetime.now().strftime("%I:%M%p"))
+            data = dict(rfidtag=params[0], location='Mall', readtime=readTime)
+            print params[0],params[1],readTime
             resp, content = h.request("http://tracking-3b.herokuapp.com/main", "POST", urlencode(data))
 
 arduino = serial.Serial('COM4',9600,timeout=10)
